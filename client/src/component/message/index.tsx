@@ -8,7 +8,12 @@ interface MessageProps {
 }
 
 const Message: React.FunctionComponent<MessageProps> = ({ user, message }) => {
-  return <S.Message>시발뭐</S.Message>;
+  return (
+    <S.Message>
+      <S.User>{user}:</S.User>
+      <S.Content>{message}</S.Content>
+    </S.Message>
+  );
 };
 
 export default Message;

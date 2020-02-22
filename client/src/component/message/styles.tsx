@@ -7,6 +7,12 @@ export const Message = styled.div`
   justify-content: flex-start;
 `;
 
-export const User = styled.div``;
+export const User = styled.div`
+  font-size: 1.2rem;
+  margin-right: 0.4rem;
+`;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  font-size: 1.2rem;
+  margin-right: 0.2rem;
+`;
