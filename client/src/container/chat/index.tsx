@@ -4,7 +4,6 @@ import * as S from './styles';
 import Message from '../../component/message';
 
 const Chat: React.FC = () => {
-  console.log(sampleData);
   return (
     <S.Chat>
       <S.Container>

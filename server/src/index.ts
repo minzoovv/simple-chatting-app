@@ -20,6 +20,7 @@ app.use(express.static('static'));
 
 const server = http.createServer(app);
 const io = socketIo(server);
+
 io.origins('https://localhost:3000');
 
 io.on('connection', socket => {
@@ -30,6 +31,6 @@ io.on('connection', socket => {
   });
 });
 
-app.listen(process.env.SERVER_PORT, () => {
-  console.log(`running on ${process.env.SERVER_PORT}`);
+server.listen(4000, () => {
+  console.log('소켓은 잘도도네 돌아가네');
 });
