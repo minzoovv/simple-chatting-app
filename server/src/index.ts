@@ -12,17 +12,17 @@ const corsOptions = {
 };
 
 const app = express();
-const server = http.createServer(app);
 
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('static'));
-app.use((req, res, next) => {});
+
+const server = http.createServer(app);
 const io = socketIo(server);
 io.origins('https://localhost:3000');
 
-io.on('connection', function(socket) {
+io.on('connection', socket => {
   console.log('a user connected');
   socket.on('init', function(data) {
     console.log(data.name);

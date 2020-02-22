@@ -9,8 +9,8 @@ const Chat: React.FC = () => {
     <S.Chat>
       <S.Container>
         <S.ChattingRoom>
-          {sampleData.map(d => (
-            <Message user={d.user} message={d.message} />
+          {sampleData.map((d, idx) => (
+            <Message key={idx} user={d.user} message={d.message} />
           ))}
         </S.ChattingRoom>
         <S.InputContainer>
@@ -31,34 +31,34 @@ var sampleData = [
   },
   {
     user: 'yo',
-    message: 'fuckyou',
+    message: 'I love you',
   },
   {
     user: 'yo',
-    message: 'fuckyou',
+    message: 'I love you',
   },
   {
     user: 'yo',
-    message: 'fuckyou',
+    message: 'I love you',
   },
   {
     user: 'yo',
-    message: 'fuckyou',
+    message: 'I love you',
   },
   {
     user: 'yo',
-    message: 'fuckyou',
+    message: 'I love you',
   },
   {
     user: 'yo',
-    message: 'fuckyou',
+    message: 'I love you',
   },
   {
     user: 'yo',
-    message: 'fuckyou',
+    message: 'I love you',
   },
   {
     user: 'yo',
-    message: 'fuckyou',
+    message: 'I love you',
   },
 ];
