@@ -1,24 +1,32 @@
-import socketIo from "socket.io";
-import http from "http";
-import express from "express";
-import dotenv from "dotenv";
+import socketIo from 'socket.io';
+import http from 'http';
+import express from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true,
+};
+
 const app = express();
-const httpServer = http.createServer(app);
-const io = socketIo(httpServer);
+const server = http.createServer(app);
 
+app.use(cors(corsOptions));
 app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
-app.use(express.static("static"));
-app.io = io;
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static('static'));
+app.use((req, res, next) => {});
+const io = socketIo(server);
+io.origins('https://localhost:3000');
 
-app.io.on("connection", function(socket) {
-  console.log("a user connected");
-  socket.on("init", function(data) {
+io.on('connection', function(socket) {
+  console.log('a user connected');
+  socket.on('init', function(data) {
     console.log(data.name);
-    socket.emit("welcom", `hello! ${data.name}`);
+    socket.emit('welcome', `hello! ${data.name}`);
   });
 });
 
